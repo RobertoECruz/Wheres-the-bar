@@ -1,5 +1,5 @@
 body{
-	background-color:black;
+	//background-color:black;
 }
 
 #map-canvas{
@@ -8,4 +8,5 @@ body{
 
 #debug{
 	color: blue;
+	height: 100px;
 }
