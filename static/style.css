@@ -6,17 +6,6 @@ body{
 	height: 100%;
 }
 
-table{
-	width: 100%;
-	height: 10%;
-	color: white;
-	align: center;
-}
-
-tr{
-	align: center;
-}
-
-p{
-	align: center;
+#debug{
+	color: blue;
 }

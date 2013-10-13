@@ -1,4 +1,4 @@
-var x, y, map;
+var x, y, map q;
 function getLocation(){
 	if (navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(showPosition);
@@ -10,6 +10,7 @@ function getLocation(){
 function showPosition(position){
 	x = position.coords.latitude;
 	y = position.coords.longitude;
+	document.getElementById("debug").innerHTML=x + ", " + y;
 }
 
 function generateMap(){
