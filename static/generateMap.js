@@ -1,5 +1,6 @@
 $( document ).ready(function(){
 var x, y, map, q, finalD;
+var markersArray = [];
 
 //var key, type;
 //function storeType(){
@@ -54,7 +55,7 @@ function addHome(location){
 		   map: map
 	});
 
-	var contentString = '<div id="home"><h2>Current location</h2></div>'
+	var contentString = '<div id="home"><h3>Current location</h3></div>'
 
 		var infowindow = new google.maps.InfoWindow({
 			content: contentString
@@ -70,7 +71,7 @@ function addMarker(location) {
 
 	finalD=location.geometry.location;
 
-	var contentString = '<div id="content"><h2>'+location.name+'</h2></div>'
+	var contentString = '<div id="content"><h3>'+location.name+'</h3></div>'
 
 		var infowindow = new google.maps.InfoWindow({
 			content: contentString
@@ -103,13 +104,25 @@ function getNearby(keyword,types,callback){
 	service.nearbySearch(request, callback);
 }
 
+/*function clearOverlays() {
+  for(var i = 0; i < markersArray.length; i++){
+    markersArray[i].setMap(null);
+  }
+  markersArray = [];
+}*/
+
 
 $('#liquor').click(function(e){
   e.preventDefault();
 
   getNearby('liquor stores',['food'],barCallback);
   console.log('jerry debuggin');
-});
+//clear marker overlays
+  //  clearOverlays();
 
+});
+//push marker and then clear markers
+  //markersArray.push(marker);
+  //google.maps.event.addListener(marker,"click",function(){});
 google.maps.event.addDomListener(window, 'load', getLocation);
 });
