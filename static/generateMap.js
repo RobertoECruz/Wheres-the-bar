@@ -46,7 +46,7 @@ function addMarker(location) {
 		map: map
 	});
 
-	var contentString = '<div id="content"><div id="sitenotice"></div><h1 id="firstHeading" class="firstHeading">'+location.name+'</h1> </div> </div>'
+	var contentString = '<div id="content"><h1>'+location.name+'</h1></div>'
 
 	var infowindow = new google.maps.InfoWindow({
 		content: contentString
