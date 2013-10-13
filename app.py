@@ -5,6 +5,6 @@ app = Flask(__name__)
 def find_bar():
 	return render_template('index.html')
 
-app.debug=True
+#app.debug=True
 if __name__ == '__main__':
 	app.run()
