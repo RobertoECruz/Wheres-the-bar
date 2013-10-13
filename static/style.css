@@ -14,9 +14,16 @@ p{
 
 #map-canvas{
 	height: 700px;
-	width: 1000px;
+	width: 2000px;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 50px;
+}
+
+@media only screen and (max-device-width: 640px){
+	#map-canvas{
+		height: 400px;
+		width: 600px;
+	}
 }
