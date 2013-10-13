@@ -23,7 +23,7 @@ p{
 
 @media only screen and (max-device-width: 640px){
 	#map-canvas{
-		height: 400px;
-		width: 600px;
+		height: 600px;
+		width: 200px;
 	}
 }
