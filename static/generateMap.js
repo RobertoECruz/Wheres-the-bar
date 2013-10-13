@@ -10,7 +10,7 @@ function getLocation(){
 function showPosition(position){
 	x = position.coords.latitude;
 	y = position.coords.longitude;
-	document.getElementById("debug").innerHTML=x + ", " + y;
+	q = document.getElementById("debug").innerHTML=x + ", " + y;
 }
 
 function generateMap(){
