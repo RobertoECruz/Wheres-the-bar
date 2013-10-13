@@ -1,4 +1,4 @@
-var x, y, map q;
+var x, y, map;
 function getLocation(){
 	if (navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(showPosition);
@@ -10,10 +10,11 @@ function getLocation(){
 function showPosition(position){
 	x = position.coords.latitude;
 	y = position.coords.longitude;
-	q = document.getElementById("debug").innerHTML=x + ", " + y;
+	
+	generateMap(x, y);
 }
 
-function generateMap(){
+function generateMap(x, y){
 	var mapOptions = {
 			zoom: 8,
 			center: new google.maps.LatLng(x, y),
@@ -22,4 +23,4 @@ function generateMap(){
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 }
 
-google.maps.event.addDomListener(window, 'load', generateMap);
+google.maps.event.addDomListener(window, 'load', getLocation);
