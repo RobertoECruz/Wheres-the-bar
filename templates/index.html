@@ -1,5 +1,6 @@
 <html>
 <head>
+<script src="../scripts/generateMap.js"></script>
 </head>
 <title>Where's the Bar?</title>
 <body bgcolor = "black">
@@ -8,6 +9,8 @@
 		<td><center><p style="color:white">TITLE</p></center></td>
 	</tr>
 </table> 
+
+<div id='map-canvas'></div>
 
 <table width="100%">
 	<tr>
@@ -18,27 +21,6 @@
 	</tr>
 	<tr>
 		<td><center style="color:white">Star Rating image (rating_img_url)</center></td>
-	</tr>
-</table> 
-
-<table width="100%">
-	<tr>
-		<td><center style="color:white"><img src=" http://maps.googleapis.com/maps/api/staticmap?center=High+Point+Solutions+Stadium,Piscataway+Township,NJ&zoom=13&size=1080x540&maptype=roadmap
-				&markers=color:blue%7Clabel:9%7C40.4834,-74.4433&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-				&markers=color:red%7Ccolor:red%7Clabel:C%7C40.718217,-73.998284&sensor=false"></img></center></td>
-	</tr>
-</table> 
-
-<table width="100%" height = "20%" bgcolor="white">
-	<tr>
-		<td>
-			<!--THIS IS A COMMENT 
-
-THIS IS THE STUFF THAT ERIC SENT ME (FETCH LOCATION INFORMATION?):
-function showPosition(position) { x.innerHTML="Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude; }
-
-<center>Checkboxes and settings <input type="checkbox"></center>-->
-		</td>
 	</tr>
 </table> 
 
