@@ -1,3 +1,4 @@
+$( document ).ready(function(){
 var x, y, map, q, finalD;
 
 //var key, type;
@@ -28,15 +29,7 @@ function generateMap(x, y){
 	};
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-	var request = {
-		location: q,
-		openNow: true,
-		rankBy: google.maps.places.RankBy.DISTANCE,
-		keyword: 'bar',
-		types: ['food']
-	};
-	service = new google.maps.places.PlacesService(map);
-	service.nearbySearch(request, barCallback);
+  getNearby('bars',['food'],barCallback);
 }
 
 function diCallback(results, status){
@@ -97,4 +90,26 @@ function getDirections(){
 	directions.route(diRequest, diCallback);
 }
 
+//nearby location
+function getNearby(keyword,types,callback){
+	var request = {
+		location: q,
+		openNow: true,
+		rankBy: google.maps.places.RankBy.DISTANCE,
+		keyword: keyword,
+		types: types
+	};
+	service = new google.maps.places.PlacesService(map);
+	service.nearbySearch(request, callback);
+}
+
+
+$('#liquor').click(function(e){
+  e.preventDefault();
+
+  getNearby('liquor stores',['food'],barCallback);
+  console.log('jerry debuggin');
+});
+
 google.maps.event.addDomListener(window, 'load', getLocation);
+});
