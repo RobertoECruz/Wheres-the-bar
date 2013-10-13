@@ -1,16 +1,23 @@
 body{
-	//background-color:black;
+	background-color:black;
+	font-family:"Helvetical", Arial, sans-serif;
+}
+
+h1{
+	color: #5c88da;
+	font-size: 85px;
+}
+
+p{
+	color: #862633;
+
 }
 
 #map-canvas{
-	height: 400px;
-	width: 600px;
+	height: 700px;
+	width: 2000px;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-#debug{
-	color: blue;
-	height: 100px;
+	margin-top: 50px;
 }

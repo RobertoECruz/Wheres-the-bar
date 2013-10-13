@@ -1,4 +1,4 @@
-var x, y, map, q;
+var x, y, map, q, finalD;
 function getLocation(){
 	if (navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(showPosition);
@@ -16,7 +16,7 @@ function showPosition(position){
 
 function generateMap(x, y){
 	var mapOptions = {
-		zoom: 8,
+		zoom: 15,
 		center: q = new google.maps.LatLng(x, y),
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
@@ -31,6 +31,25 @@ function generateMap(x, y){
 	};
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, barCallback);
+
+	var diRequest = {
+		origin: q,
+		destination: finalD,
+		travelMode: google.maps.TravelMode.WALKING,
+		unitSystem: UnitSystem.IMPERIAL,
+	}
+
+	directions = new google.maps.DirectionsService();
+
+	directions.route(diRequest, diCallback);
+}
+
+function diCallback(results, status){
+	directionsDisplay = new google.maps.DirectionsRenderer();
+	if(status == google.maps.DirectionsStatus.OK){
+		directionsDisplay.setDirections(results);
+	}
+	directionsDisplay.setMap(map);
 }
 
 function barCallback(results, status) {
@@ -43,15 +62,24 @@ function barCallback(results, status) {
 function addMarker(location) {
 	marker = new google.maps.Marker({
 		position: location.geometry.location,
-		map: map
+		   map: map
 	});
 
-	var contentString = '<div id="content"><h1>'+location.name+'</h1></div>'
+	finalD=location.geometry.location;
 
-	var infowindow = new google.maps.InfoWindow({
-		content: contentString
-	});
+	var contentString = '<div id="content"><h2>'+location.name+'</h2></div>'
+
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
 	infowindow.open(map, marker);
+}
+
+function addHome(location){
+	home = new google.maps.Marker({
+		position: q,
+		 map:map
+	});
 }
 
 google.maps.event.addDomListener(window, 'load', getLocation);
