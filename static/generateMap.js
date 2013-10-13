@@ -21,17 +21,15 @@ function generateMap(x, y){
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-	
-
-	//addMarker();
 }
 
+/**
 function addMarker(location) {
 	marker = new google.maps.Marker({
 		position: location,
-		   map: map
+	   map: map
 	});
 }
+**/
 
 	google.maps.event.addDomListener(window, 'load', getLocation);
