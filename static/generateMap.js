@@ -15,7 +15,7 @@ function showPosition(position){
 function generateMap(){
 	var mapOptions = {
 			zoom: 8,
-			center: new google.maps.LatLng(x,y),
+			center: new google.maps.LatLng(x, y),
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
