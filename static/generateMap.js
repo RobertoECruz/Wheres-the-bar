@@ -1,5 +1,6 @@
-var x, y, map, q, finalD key, type;
+var x, y, map, q, finalD;
 
+//var key, type;
 //function storeType(){
 //this is gonna do cool things later	
 //}
@@ -36,17 +37,6 @@ function generateMap(x, y){
 	};
 	service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, barCallback);
-
-	var diRequest = {
-		origin: q,
-		destination: finalD,
-		travelMode: google.maps.TravelMode.WALKING,
-		unitSystem: UnitSystem.IMPERIAL,
-	}
-
-	directions = new google.maps.DirectionsService();
-
-	directions.route(diRequest, diCallback);
 }
 
 function diCallback(results, status){
@@ -60,9 +50,24 @@ function diCallback(results, status){
 function barCallback(results, status) {
 	if (status == google.maps.places.PlacesServiceStatus.OK) {
 		addMarker(results[0]);
+		addHome(q);
+		getDirections();
 	}
 }
 
+function addHome(location){
+	marker = new google.maps.Marker({
+		position: location,
+		   map: map
+	});
+
+	var contentString = '<div id="home"><h2>Current location</h2></div>'
+
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+	infowindow.open(map, marker);
+}
 
 function addMarker(location) {
 	marker = new google.maps.Marker({
@@ -80,11 +85,16 @@ function addMarker(location) {
 	infowindow.open(map, marker);
 }
 
-function addHome(location){
-	home = new google.maps.Marker({
-		position: q,
-		 map:map
-	});
+function getDirections(){
+	var diRequest = {
+		origin: q,
+		destination: finalD,
+		travelMode: google.maps.TravelMode.WALKING,
+	}
+
+	directions = new google.maps.DirectionsService();
+
+	directions.route(diRequest, diCallback);
 }
 
 google.maps.event.addDomListener(window, 'load', getLocation);
