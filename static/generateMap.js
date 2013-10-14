@@ -91,6 +91,9 @@ function getDirections(){
 	directions.route(diRequest, diCallback);
 }
 
+//this is the new function that allows you to search anything via gmaps
+//pass it keyword, types, callback! don't forget...to pass it barCallback for callback!
+//use line 113 as a reference
 //nearby location
 function getNearby(keyword,types,callback){
 	var request = {
@@ -108,7 +111,6 @@ $('#liquor').click(function(e){
   e.preventDefault();
 
   getNearby('liquor stores',['food'],barCallback);
-  console.log('jerry debuggin');
 });
 google.maps.event.addDomListener(window, 'load', getLocation);
 });
