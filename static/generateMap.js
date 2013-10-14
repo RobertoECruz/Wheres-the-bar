@@ -104,25 +104,11 @@ function getNearby(keyword,types,callback){
 	service.nearbySearch(request, callback);
 }
 
-/*function clearOverlays() {
-  for(var i = 0; i < markersArray.length; i++){
-    markersArray[i].setMap(null);
-  }
-  markersArray = [];
-}*/
-
-
 $('#liquor').click(function(e){
   e.preventDefault();
 
   getNearby('liquor stores',['food'],barCallback);
   console.log('jerry debuggin');
-//clear marker overlays
-  //  clearOverlays();
-
 });
-//push marker and then clear markers
-  //markersArray.push(marker);
-  //google.maps.event.addListener(marker,"click",function(){});
 google.maps.event.addDomListener(window, 'load', getLocation);
 });
